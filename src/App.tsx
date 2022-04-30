@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from 'react';
+import AOS from 'aos';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import JBLayout from 'components/JBLayout/JBLayout';
+import Home from 'pages/Home/Home';
+import {
+  ROUTE_COMPANIES,
+  ROUTE_CONTACT,
+  ROUTE_HOME,
+  ROUTE_PORTFOLIO,
+} from 'common/routes';
+import ThemeProvider from 'context/Theme/Theme';
+import 'aos/dist/aos.css';
 
-function App() {
+const App: React.FC = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider>
+      <Router>
+        <Routes>
+          <Route path={ROUTE_HOME} element={<JBLayout />}>
+            <Route index element={<Home />} />
+            <Route path={ROUTE_PORTFOLIO} element={<div>Portfolio</div>} />
+            <Route path={ROUTE_COMPANIES} element={<div>Companies</div>} />
+            <Route path={ROUTE_CONTACT} element={<div>Contact</div>} />
+          </Route>
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
-}
+};
 
+App.displayName = 'App';
 export default App;

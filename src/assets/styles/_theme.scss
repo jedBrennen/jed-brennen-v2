@@ -1,0 +1,79 @@
+// Light Theme Variables
+$light-primary-bg: white;
+$light-primary-text: $colour-primary-grey;
+$light-primary-border: $colour-primary-grey;
+$light-button-text: $colour-primary-grey;
+$light-button-bg: $colour-primary-grey;
+$light-button-border: $colour-primary-grey;
+
+// Dark Theme Variables
+$dark-primary-bg: $colour-primary-grey;
+$dark-primary-text: white;
+$dark-primary-border: white;
+$dark-button-text: white;
+$dark-button-bg: white;
+$dark-button-border: white;
+
+// Theme Map
+$themes: (
+  light: (
+    primary-bg: $light-primary-bg,
+    primary-text: $light-primary-text,
+    primary-border: $light-primary-border,
+    button-text: $light-primary-text,
+    button-text-focus: darken($light-button-text, 20%),
+    button-bg: $light-button-bg,
+    button-bg-focus: darken($light-button-bg, 20%),
+    button-border: $light-button-border,
+    button-border-focus: darken($light-button-border, 20%),
+  ),
+  dark: (
+    primary-bg: $dark-primary-bg,
+    primary-text: $dark-primary-text,
+    primary-border: $dark-primary-border,
+    button-text: $dark-primary-text,
+    button-text-focus: darken($dark-button-text, 20%),
+    button-bg: $dark-button-bg,
+    button-bg-focus: darken($dark-button-bg, 20%),
+    button-border: $dark-button-border,
+    button-border-focus: darken($dark-button-border, 20%),
+  ),
+);
+
+@mixin useTheme() {
+  @each $theme, $map in $themes {
+    .theme--#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $sub-map in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value,
+          )
+        ) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
+
+@function getTextColorBasedOnBG($color) {
+  @if (lightness($color) > 50) {
+    @return $colour-primary-grey;
+  } @else {
+    @return white;
+  }
+}
+
+@mixin applyThemedBgWithCorrectTextColor($bg-color) {
+  @include useTheme() {
+    background: themed($bg-color);
+    color: getTextColorBasedOnBG(themed($bg-color));
+  }
+}

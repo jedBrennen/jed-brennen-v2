@@ -1,0 +1,121 @@
+.jb-button {
+  position: relative;
+
+  &--primary {
+    @include applyThemedBgWithCorrectTextColor('button-bg');
+    border: none;
+    transition: background-color $common-transition-timing;
+
+    &:hover {
+      @include applyThemedBgWithCorrectTextColor('button-bg-focus');
+    }
+  }
+
+  &--secondary {
+    @include useTheme() {
+      color: themed('button-text');
+      border: 2px solid themed('button-border');
+    }
+    background: none;
+    transition: color $common-transition-timing,
+      border-color $common-transition-timing;
+
+    &:hover {
+      @include useTheme() {
+        color: themed('button-text-focus');
+        border: 2px solid themed('button-border-focus');
+      }
+    }
+  }
+
+  &--tertiary {
+    @include useTheme() {
+      color: themed('primary-text');
+    }
+    background: none;
+    border: none;
+    transition: color $common-transition-timing,
+      text-decoration $common-transition-timing;
+
+    &::after {
+      @include useTheme() {
+        background-color: themed('button-border-focus');
+      }
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 6px;
+      width: calc(100% - 12px);
+      height: 1px;
+      opacity: 0;
+      transition: opacity $common-transition-timing;
+    }
+
+    &:hover {
+      @include useTheme() {
+        color: themed('button-text-focus');
+      }
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &--large {
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    min-height: 48px;
+    min-width: 48px;
+    padding: 0 24px;
+
+    &.jb-button--secondary {
+      padding: 0 22px;
+    }
+
+    &.jb-button--tertiary {
+      &::after {
+        left: 24px;
+        width: calc(100% - 48px);
+      }
+    }
+  }
+
+  &--medium {
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    min-height: 40px;
+    min-width: 40px;
+    padding: 0 20px;
+
+    &.jb-button--secondary {
+      padding: 0 18px;
+    }
+
+    &.jb-button--tertiary {
+      &::after {
+        left: 20px;
+        width: calc(100% - 40px);
+      }
+    }
+  }
+
+  &--small {
+    font-size: 1.1rem;
+    line-height: 1.1rem;
+    min-height: 32px;
+    min-width: 32px;
+    padding: 0 16px;
+
+    &.jb-button--secondary {
+      padding: 0 14px;
+    }
+
+    &.jb-button--tertiary {
+      &::after {
+        left: 16px;
+        width: calc(100% - 32px);
+      }
+    }
+  }
+}

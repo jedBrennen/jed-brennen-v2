@@ -1,0 +1,53 @@
+h1 {
+  @include useTheme() {
+    color: themed('primary-text');
+  }
+  font-size: $font-header-size-h1;
+  line-height: $font-header-lineheight-h1;
+  letter-spacing: 0.1rem;
+}
+
+h2 {
+  @include useTheme() {
+    color: themed('primary-text');
+  }
+  font-size: $font-header-size-h2;
+  line-height: $font-header-lineheight-h2;
+  letter-spacing: 0.1rem;
+}
+
+h3 {
+  @include useTheme() {
+    color: themed('primary-text');
+  }
+  font-size: $font-header-size-h3;
+  line-height: $font-header-lineheight-h3;
+  letter-spacing: 0.1rem;
+}
+
+h4 {
+  @include useTheme() {
+    color: themed('primary-text');
+  }
+  font-size: $font-header-size-h4;
+  line-height: $font-header-lineheight-h4;
+  letter-spacing: 0.1rem;
+}
+
+h5 {
+  @include useTheme() {
+    color: themed('primary-text');
+  }
+  font-size: $font-header-size-h5;
+  line-height: $font-header-lineheight-h5;
+  letter-spacing: 0.1rem;
+}
+
+h6 {
+  @include useTheme() {
+    color: themed('primary-text');
+  }
+  font-size: $font-header-size-h6;
+  line-height: $font-header-lineheight-h6;
+  letter-spacing: 0.1rem;
+}
