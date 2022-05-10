@@ -1,5 +1,5 @@
 import { ROUTE_COMPANIES } from 'common/routes';
-import JBHighlight from 'components/JBHightlight/JBHightlight';
+import JBHighlight from 'components/JBHighlight/JBHighlight';
 import companyData from 'data/companies';
 import { Company } from 'common/types';
 import useNavigateToTop from 'common/hooks/useNavigateToTop';
