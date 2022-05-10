@@ -1,6 +1,7 @@
-export const skills = {
+const skills = {
   frontEnd: [
     'JS/Typescript',
+    'HTML/CSS',
     'React',
     'Redux',
     'ChartJS',
@@ -9,7 +10,6 @@ export const skills = {
     'BEM',
     'Jest',
     'Enzyme',
-    'Mocha',
     'Cypress',
     'Storybook',
     'Flutter',
@@ -17,3 +17,5 @@ export const skills = {
   backEnd: ['Python', 'Node', 'Java', 'SQL', 'NoSQL', 'REST', 'GraphQL'],
   ciCd: ['GitHub', 'AWS', 'Firebase', 'Docker'],
 };
+
+export default skills;
