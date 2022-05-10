@@ -30,4 +30,32 @@
       }
     }
   }
+
+  @include toTablet {
+    &__companies {
+      flex-direction: column;
+    }
+
+    &__company {
+      width: 100%;
+    }
+  }
+
+  @include onlySmall {
+    &__company {
+      width: 230px;
+      height: 230px;
+
+      svg {
+        height: 30px;
+      }
+    }
+  }
+
+  @include onlyLarge {
+    &__company {
+      width: 300px;
+      height: 300px;
+    }
+  }
 }

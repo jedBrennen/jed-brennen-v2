@@ -1,9 +1,15 @@
 import classNames from 'classnames';
 import { JBHighlightProps } from './JBHighlight.types';
 
-const JBHighlight: React.FC<JBHighlightProps> = ({ children, className }) => {
+const JBHighlight: React.FC<JBHighlightProps> = ({
+  children,
+  onClick,
+  className,
+}) => {
   return (
-    <div className={classNames('jb-highlight', className)}>{children}</div>
+    <div className={classNames('jb-highlight', className)} onClick={onClick}>
+      {children}
+    </div>
   );
 };
 

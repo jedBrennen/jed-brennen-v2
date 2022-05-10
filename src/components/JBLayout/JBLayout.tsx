@@ -1,5 +1,6 @@
-import JBNavbar from 'components/JBNavbar/JBNavbar';
 import { Outlet } from 'react-router-dom';
+import JBFooter from 'components/JBFooter/JBFooter';
+import JBNavbar from 'components/JBNavbar/JBNavbar';
 
 const JBLayout: React.FC = () => {
   return (
@@ -8,6 +9,7 @@ const JBLayout: React.FC = () => {
       <div className="jb-layout__content">
         <Outlet />
       </div>
+      <JBFooter />
     </div>
   );
 };

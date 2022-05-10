@@ -23,7 +23,7 @@ $spacing: 80px;
   }
 
   &__header-section {
-    height: 100vh;
+    height: calc(100vh - $navbar-height);
     display: flex;
     justify-content: stretch;
     align-items: center;
@@ -99,9 +99,5 @@ $spacing: 80px;
         }
       }
     }
-  }
-
-  &__footer {
-    height: 128px;
   }
 }

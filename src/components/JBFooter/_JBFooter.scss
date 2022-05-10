@@ -1,0 +1,17 @@
+.jb-footer {
+  height: $navbar-height;
+  padding: 32px 0;
+  text-align: right;
+  display: flex;
+  justify-content: space-between;
+
+  &__links {
+    display: flex;
+
+    .jb-link {
+      &::after {
+        height: 0;
+      }
+    }
+  }
+}

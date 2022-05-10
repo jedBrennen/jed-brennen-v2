@@ -16,7 +16,6 @@ const Home: React.FC = () => {
       <HomeAbout />
       <HomeExpertise />
       <HomeExperience />
-      <footer className="home__footer"></footer>
     </>
   );
 };

@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { JBLinkProps } from './JBLink.types';
 
 const JBLink: React.FC<JBLinkProps> = ({
+  linkType = 'tertiary',
   linkSize = 'medium',
   isDisabled = false,
   className,
@@ -12,7 +13,7 @@ const JBLink: React.FC<JBLinkProps> = ({
     <a
       className={classNames(
         'jb-link',
-        'jb-button--tertiary',
+        `jb-button--${linkType}`,
         `jb-button--${linkSize}`,
         className,
         {

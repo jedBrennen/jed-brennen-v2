@@ -19,6 +19,12 @@
     display: none;
   }
 
+  &__theme-toggle {
+    &::after {
+      height: 0;
+    }
+  }
+
   @include fromSmall {
     &__menu {
       .jb-button:last-child {

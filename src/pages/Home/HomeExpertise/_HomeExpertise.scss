@@ -38,4 +38,12 @@
       column-gap: 40px;
     }
   }
+
+  @include onlySmall {
+    grid-template-columns: 1fr 1fr;
+
+    &__header {
+      grid-column: 1 / span 2;
+    }
+  }
 }

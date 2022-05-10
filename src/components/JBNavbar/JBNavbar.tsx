@@ -1,28 +1,36 @@
 import { useContext, useState } from 'react';
-import { useNavigate } from 'react-router';
 import classNames from 'classnames';
 import Icon from '@mdi/react';
-import { mdiClose, mdiMenu } from '@mdi/js';
+import { mdiClose, mdiMenu, mdiThemeLightDark } from '@mdi/js';
 import JBButton from 'components/JBButton/JBButton';
 import { ROUTE_HOME } from 'common/routes';
 import { ThemeContext } from 'context/Theme/Theme';
 import useBreakpoint from 'common/hooks/useBreakpoint';
 import { JBButtonSize } from 'components/JBButton/JBButton.types';
 import JBLink from 'components/JBLink/JBLink';
+import useNavigateToTop from 'common/hooks/useNavigateToTop';
 
 const JBNavbar: React.FC = () => {
   const { theme, setTheme } = useContext(ThemeContext);
   const [isMenuExpanded, setIsMenuExpanded] = useState(false);
-  const navigate = useNavigate();
+  const navigate = useNavigateToTop();
   const breakpoint = useBreakpoint();
+
+  const buttonSize: JBButtonSize =
+    breakpoint === 'mobile' || breakpoint === 'tablet' ? 'large' : 'small';
 
   const handleNavigate = (route: string) => {
     navigate(route);
     setIsMenuExpanded(false);
   };
 
-  const buttonSize: JBButtonSize =
-    breakpoint === 'mobile' || breakpoint === 'tablet' ? 'large' : 'small';
+  const toggleTheme = () => {
+    if (theme === 'dark') {
+      setTheme('light');
+    } else {
+      setTheme('dark');
+    }
+  };
 
   return (
     <nav className="jb-navbar">
@@ -31,20 +39,6 @@ const JBNavbar: React.FC = () => {
           'jb-navbar__menu--expanded': isMenuExpanded,
         })}
       >
-        <JBButton
-          buttonType="tertiary"
-          buttonSize={buttonSize}
-          onClick={() => setTheme('light')}
-        >
-          {`Set Light${theme === 'light' ? ' (Current)' : ''}`}
-        </JBButton>
-        <JBButton
-          buttonType="tertiary"
-          buttonSize={buttonSize}
-          onClick={() => setTheme('dark')}
-        >
-          {`Set Dark${theme === 'dark' ? ' (Current)' : ''}`}
-        </JBButton>
         <JBLink
           linkSize={buttonSize}
           href="#home"
@@ -73,6 +67,22 @@ const JBNavbar: React.FC = () => {
         >
           Experience
         </JBLink>
+        <JBLink
+          linkType="primary"
+          linkSize="small"
+          href="/files/Jed Brennen CV.pdf"
+          download
+        >
+          Download CV
+        </JBLink>
+        <JBButton
+          buttonType="tertiary"
+          buttonSize={buttonSize}
+          onClick={toggleTheme}
+          className="jb-navbar__theme-toggle"
+        >
+          <Icon path={mdiThemeLightDark} size={1} />
+        </JBButton>
       </div>
       <JBButton
         className="jb-navbar__hamburger"

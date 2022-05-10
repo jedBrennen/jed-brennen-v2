@@ -3,10 +3,12 @@
   padding: 0 80px;
 
   &__content {
+    min-height: calc(100vh - #{$navbar-height});
     margin: auto;
     max-width: $max-content-width;
     width: 100%;
     z-index: 1;
+    padding-top: $navbar-height;
   }
 
   &__theme-toggle {
