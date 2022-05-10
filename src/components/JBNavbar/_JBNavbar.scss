@@ -17,12 +17,8 @@
 
   &__hamburger {
     display: none;
-  }
-
-  &__theme-toggle {
-    &::after {
-      height: 0;
-    }
+    padding: 0;
+    text-align: right;
   }
 
   @include fromSmall {

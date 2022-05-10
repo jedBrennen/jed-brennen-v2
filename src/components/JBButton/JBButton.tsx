@@ -1,10 +1,12 @@
+import Icon from '@mdi/react';
 import classNames from 'classnames';
-import { JBButtonProps } from './JBButton.types';
+import { JBButtonProps, JBButtonSize } from './JBButton.types';
 
 const JBButton: React.FC<JBButtonProps> = ({
   buttonType = 'primary',
   buttonSize = 'medium',
   isDisabled = false,
+  icon,
   className,
   children,
   ...rest
@@ -15,15 +17,36 @@ const JBButton: React.FC<JBButtonProps> = ({
         'jb-button',
         `jb-button--${buttonSize}`,
         `jb-button--${buttonType}`,
-        className
+        className,
+        {
+          'jb-button--icon-only': !!icon && !children,
+        }
       )}
       disabled={isDisabled}
       {...rest}
     >
-      <span className="jb-button__content">{children}</span>
+      {children && <span className="jb-button__content">{children}</span>}
+      {icon && (
+        <Icon
+          className="jb-button__icon"
+          path={icon}
+          size={getIconSize(buttonSize)}
+        />
+      )}
     </button>
   );
 };
 
 JBButton.displayName = 'JBButton';
 export default JBButton;
+
+const getIconSize = (buttonSize: JBButtonSize) => {
+  switch (buttonSize) {
+    case 'large':
+      return 1.8;
+    case 'small':
+      return 1;
+    default:
+      return 1.3;
+  }
+};

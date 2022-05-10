@@ -69,7 +69,7 @@ const JBNavbar: React.FC = () => {
         </JBLink>
         <JBLink
           linkType="primary"
-          linkSize="small"
+          linkSize={buttonSize}
           href="/files/Jed Brennen CV.pdf"
           download
         >
@@ -80,18 +80,16 @@ const JBNavbar: React.FC = () => {
           buttonSize={buttonSize}
           onClick={toggleTheme}
           className="jb-navbar__theme-toggle"
-        >
-          <Icon path={mdiThemeLightDark} size={1} />
-        </JBButton>
+          icon={mdiThemeLightDark}
+        />
       </div>
       <JBButton
         className="jb-navbar__hamburger"
-        buttonType="primary"
+        buttonType="tertiary"
         buttonSize={buttonSize}
         onClick={() => setIsMenuExpanded(!isMenuExpanded)}
-      >
-        <Icon path={isMenuExpanded ? mdiClose : mdiMenu} size={1.3} />
-      </JBButton>
+        icon={isMenuExpanded ? mdiClose : mdiMenu}
+      />
     </nav>
   );
 };

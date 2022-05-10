@@ -37,7 +37,7 @@
     transition: color $common-transition-timing,
       text-decoration $common-transition-timing;
 
-    &::after {
+    &:not(.jb-button--icon-only)::after {
       @include useTheme() {
         background-color: themed('button-border-focus');
       }
