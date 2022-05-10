@@ -1,6 +1,5 @@
 import { useContext, useState } from 'react';
 import classNames from 'classnames';
-import Icon from '@mdi/react';
 import { mdiClose, mdiMenu, mdiThemeLightDark } from '@mdi/js';
 import JBButton from 'components/JBButton/JBButton';
 import { ROUTE_HOME } from 'common/routes';
