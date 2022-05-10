@@ -5,7 +5,7 @@ import JBHighlight from 'components/JBHighlight/JBHighlight';
 import companyData from 'data/companies';
 import { Company } from 'common/types';
 import useNavigateToTop from 'common/hooks/useNavigateToTop';
-import { skills } from 'data/skills';
+import skills from 'data/skills';
 
 dayjs.extend(relativeTime);
 
