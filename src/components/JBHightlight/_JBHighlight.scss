@@ -1,0 +1,14 @@
+.jb-highlight {
+  width: 350px;
+  height: 350px;
+  transition: background $common-transition-timing,
+    color $common-transition-timing;
+  @include applyThemedBgWithCorrectTextColor('secondary-bg');
+  @include useTheme() {
+    border: 4px solid themed('primary-border');
+  }
+
+  &:hover {
+    @include applyThemedBgWithCorrectTextColor('primary-bg');
+  }
+}

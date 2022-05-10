@@ -1,3 +1,21 @@
 .jb-layout {
   @include applyThemedBgWithCorrectTextColor('primary-bg');
+  padding: 0 80px;
+
+  &__content {
+    margin: auto;
+    max-width: $max-content-width;
+    width: 100%;
+    z-index: 1;
+  }
+
+  &__theme-toggle {
+    position: fixed;
+    bottom: 32px;
+    right: 80px;
+  }
+
+  @include toTablet {
+    padding: 0 40px;
+  }
 }

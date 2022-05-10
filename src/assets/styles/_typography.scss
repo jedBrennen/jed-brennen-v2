@@ -1,0 +1,114 @@
+@mixin jb-typography-header($header, $font-size, $line-height) {
+  &__#{$header},
+  &__#{$header}--bold,
+  &__#{$header}--thin {
+    font-size: $font-size;
+    line-height: $line-height;
+    font-family: $font-primary;
+    font-weight: 500;
+  }
+
+  &__#{$header}--bold {
+    font-weight: 700;
+  }
+
+  &__#{$header}--thin {
+    font-weight: 400;
+  }
+}
+
+.jb-typography {
+  @include jb-typography-header(
+    'h1',
+    $font-header-size-h1,
+    $font-header-lineheight-h1
+  );
+  @include jb-typography-header(
+    'h2',
+    $font-header-size-h2,
+    $font-header-lineheight-h2
+  );
+  @include jb-typography-header(
+    'h3',
+    $font-header-size-h3,
+    $font-header-lineheight-h3
+  );
+  @include jb-typography-header(
+    'h4',
+    $font-header-size-h4,
+    $font-header-lineheight-h4
+  );
+  @include jb-typography-header(
+    'h5',
+    $font-header-size-h5,
+    $font-header-lineheight-h5
+  );
+  @include jb-typography-header(
+    'h6',
+    $font-header-size-h6,
+    $font-header-lineheight-h6
+  );
+
+  &__body--xlarge {
+    font-family: $font-primary;
+    font-size: $font-text-size-xlarge;
+    line-height: $font-text-lineheight-xlarge;
+  }
+
+  &__body--large {
+    font-family: $font-primary;
+    font-size: $font-text-size-large;
+    line-height: $font-text-lineheight-large;
+  }
+
+  &__body--medium {
+    font-family: $font-primary;
+    font-size: $font-text-size-medium;
+    line-height: $font-text-lineheight-medium;
+  }
+
+  &__body--small {
+    font-family: $font-primary;
+    font-size: $font-text-size-small;
+    line-height: $font-text-lineheight-small;
+  }
+
+  &__body--xsmall {
+    font-family: $font-primary;
+    font-size: $font-text-size-xsmall;
+    line-height: $font-text-lineheight-xsmall;
+  }
+
+  &__label--large,
+  &__label--large-bold {
+    font-family: $font-primary;
+    font-size: $font-label-size-large;
+    line-height: $font-label-lineheight-large;
+  }
+
+  &__label--large-bold {
+    font-weight: bold;
+  }
+
+  &__label--medium,
+  &__label--medium-bold {
+    font-family: $font-primary;
+    font-size: $font-label-size-medium;
+    line-height: $font-label-lineheight-medium;
+  }
+
+  &__label--medium-bold {
+    font-weight: bold;
+  }
+
+  &__label--small,
+  &__label--small-bold {
+    font-family: $font-primary;
+    font-size: $font-label-size-small;
+    line-height: $font-label-lineheight-small;
+  }
+
+  &__label--small-bold {
+    font-weight: bold;
+  }
+}

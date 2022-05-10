@@ -1,7 +1,13 @@
 @import 'variables';
+@import 'typography';
 @import 'theme';
 @import 'base';
-@import '../../components/JBLayout/JBLayout';
 @import '../../components/JBButton/JBButton';
+@import '../../components/JBHightlight/JBHighlight';
+@import '../../components/JBLink/JBLink';
+@import '../../components/JBLayout/JBLayout';
 @import '../../components/JBNavbar/JBNavbar';
+@import '../../components/JBToggle/JBToggle';
 @import '../../pages/Home/Home';
+@import '../../pages/Home/HomeExperience/HomeExperience';
+@import '../../pages/Home/HomeExpertise/HomeExpertise';

@@ -14,7 +14,10 @@ import 'aos/dist/aos.css';
 
 const App: React.FC = () => {
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      anchorPlacement: 'top-bottom',
+      duration: 1000,
+    });
   }, []);
 
   return (

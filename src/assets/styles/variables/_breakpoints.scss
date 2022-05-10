@@ -1,0 +1,102 @@
+$breakpoint-mobile-min: 0px;
+$breakpoint-mobile-max: 480px;
+$breakpoint-tablet-min: $breakpoint-mobile-max + 1px;
+$breakpoint-tablet-max: 768px;
+$breakpoint-small-min: $breakpoint-tablet-max + 1px;
+$breakpoint-small-max: 1024px;
+$breakpoint-large-min: $breakpoint-small-max + 1px;
+$breakpoint-large-max: 1200px;
+
+@mixin toBreakpoint($max-width) {
+  @media screen and (max-width: $max-width) {
+    @content;
+  }
+}
+
+@mixin fromBreakpoint($min-width) {
+  @media screen and (min-width: $min-width) {
+    @content;
+  }
+}
+
+@mixin onlyBreakpoint($min-width, $max-width) {
+  @media screen and (min-width: $min-width) and (max-width: $max-width) {
+    @content;
+  }
+}
+
+// Mobile
+@mixin toMobile {
+  @include toBreakpoint($breakpoint-mobile-max) {
+    @content;
+  }
+}
+
+@mixin fromMobile {
+  @include fromBreakpoint($breakpoint-mobile-min) {
+    @content;
+  }
+}
+
+@mixin onlyMobile {
+  @include onlyBreakpoint($breakpoint-mobile-min, $breakpoint-mobile-max) {
+    @content;
+  }
+}
+
+// Tablet
+@mixin toTablet {
+  @include toBreakpoint($breakpoint-tablet-max) {
+    @content;
+  }
+}
+
+@mixin fromTablet {
+  @include fromBreakpoint($breakpoint-tablet-min) {
+    @content;
+  }
+}
+
+@mixin onlyTablet {
+  @include onlyBreakpoint($breakpoint-tablet-min, $breakpoint-tablet-max) {
+    @content;
+  }
+}
+
+// Small
+@mixin toSmall {
+  @include toBreakpoint($breakpoint-small-max) {
+    @content;
+  }
+}
+
+@mixin fromSmall {
+  @include fromBreakpoint($breakpoint-small-min) {
+    @content;
+  }
+}
+
+@mixin onlySmall {
+  @include onlyBreakpoint($breakpoint-small-min, $breakpoint-small-max) {
+    @content;
+  }
+}
+
+// Large
+@mixin toLarge {
+  @include toBreakpoint($breakpoint-large-max) {
+    @content;
+  }
+}
+
+@mixin fromLarge {
+  @include fromBreakpoint($breakpoint-large-min) {
+    @content;
+  }
+}
+
+@mixin onlyLarge {
+  @include onlyBreakpoint($breakpoint-large-min, $breakpoint-large-max) {
+    @content;
+  }
+}

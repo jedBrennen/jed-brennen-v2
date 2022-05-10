@@ -1,9 +1,36 @@
+$spacing: 80px;
+
 .home {
   &__section {
+    position: relative;
+    margin-bottom: $spacing;
+    scroll-margin-top: 176px;
+
+    &:not(.home__header-section):not(:last-of-type) {
+      padding-bottom: $spacing;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        @include useTheme() {
+          border-bottom: 1px solid themed('primary-border');
+        }
+      }
+    }
+  }
+
+  &__header-section {
     height: 100vh;
     display: flex;
     justify-content: stretch;
     align-items: center;
+
+    &.home__section {
+      margin-bottom: 0;
+    }
   }
 
   &__header {
@@ -11,14 +38,14 @@
       border-top: 1px solid themed('primary-border');
       border-bottom: 1px solid themed('primary-border');
     }
-    display: flex;
     width: 100%;
+    align-self: center;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 8px;
     padding: 80px 0;
-    margin: 0 80px;
 
     h1 {
       font-family: $font-secondary;
@@ -27,10 +54,54 @@
       font-weight: lighter;
       letter-spacing: 0.5rem;
     }
+  }
 
-    h1,
-    h6 {
-      text-transform: uppercase;
+  &__dual-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 128px;
+
+    h5 {
+      margin-bottom: 16px;
     }
+
+    & > :first-child {
+      position: relative;
+      text-align: right;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -64px;
+        height: 100%;
+        @include useTheme() {
+          border-right: 1px solid themed('primary-border');
+        }
+      }
+    }
+
+    @include toTablet {
+      grid-template-columns: 1fr;
+
+      & > :first-child {
+        text-align: left;
+
+        &::after {
+          top: unset;
+          right: 0;
+          left: 0;
+          bottom: -64px;
+          border-right: none !important;
+          @include useTheme() {
+            border-bottom: 1px solid themed('primary-border');
+          }
+        }
+      }
+    }
+  }
+
+  &__footer {
+    height: 128px;
   }
 }

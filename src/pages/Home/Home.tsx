@@ -1,17 +1,22 @@
+import HomeAbout from './HomeAbout/HomeAbout';
+import HomeExperience from './HomeExperience/HomeExperience';
+import HomeExpertise from './HomeExpertise/HomeExpertise';
+
 const Home: React.FC = () => {
   return (
     <>
-      <section className="home__section">
+      <section id="home" className="home__section home__header-section">
         <header className="home__header">
-          <h1 data-aos="fade-right" data-aos-duration="1000">
-            Jed Brennen
-          </h1>
-          <h6 data-aos="fade-left" data-aos-duration="1000">
+          <h1 data-aos="fade-right">Jed Brennen</h1>
+          <h6 data-aos="fade-left" className="jb-typography__h6--thin">
             Full Stack Developer
           </h6>
         </header>
       </section>
-      <section className="home__section"></section>
+      <HomeAbout />
+      <HomeExpertise />
+      <HomeExperience />
+      <footer className="home__footer"></footer>
     </>
   );
 };
