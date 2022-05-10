@@ -6,8 +6,8 @@ export interface Company {
       title?: string | undefined;
     }
   >;
-  joined: string;
-  departed?: string;
+  joined: Date;
+  departed?: Date;
   title: string;
   location: string;
   description: string;

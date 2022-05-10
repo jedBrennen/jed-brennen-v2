@@ -1,5 +1,9 @@
-import companies from 'data/companies';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
 import { useParams } from 'react-router';
+import companies from 'data/companies';
+
+dayjs.extend(relativeTime);
 
 const Company: React.FC = () => {
   const { companyId } = useParams();
@@ -34,7 +38,7 @@ const Company: React.FC = () => {
           Joined
         </span>
         <span className="company__summary-value jb-typography__label--small-bold">
-          {company.joined}
+          {dayjs(company.joined).format('MMMM YYYY')}
         </span>
         {company.departed && (
           <>
@@ -42,7 +46,13 @@ const Company: React.FC = () => {
               Departed
             </span>
             <span className="company__summary-value jb-typography__label--small-bold">
-              {company.departed}
+              {dayjs(company.departed).format('MMMM YYYY')}
+            </span>
+            <span className="company__summary-label jb-typography__label--small">
+              Length
+            </span>
+            <span className="company__summary-value jb-typography__label--small-bold">
+              {dayjs(company.joined).to(company.departed, true)}
             </span>
           </>
         )}

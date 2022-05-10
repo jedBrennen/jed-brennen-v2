@@ -10,6 +10,19 @@
     gap: 16px;
   }
 
+  &__area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    label {
+      padding: 8px;
+      @include useTheme {
+        background-color: rgba(themed('secondary-bg'), 0.7);
+      }
+    }
+  }
+
   &__skills-container {
     display: flex;
     flex-direction: column;

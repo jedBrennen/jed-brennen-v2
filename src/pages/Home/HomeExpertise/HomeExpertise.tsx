@@ -1,22 +1,7 @@
-const expertise = {
-  frontEnd: [
-    'JS/Typescript',
-    'React',
-    'Redux',
-    'ChartJS',
-    'Angular',
-    'SCSS/SASS',
-    'BEM',
-    'Jest',
-    'Enzyme',
-    'Mocha',
-    'Cypress',
-    'Storybook',
-    'Flutter',
-  ],
-  backEnd: ['Python', 'Node', 'Java', 'SQL', 'NoSQL', 'REST', 'GraphQL'],
-  ciCd: ['GitHub', 'AWS', 'Firebase', 'Docker'],
-};
+import JBHighlight from 'components/JBHighlight/JBHighlight';
+import Dashboard from 'assets/images/dashboard.jpg';
+import Server from 'assets/images/server.jpg';
+import Launch from 'assets/images/launch.jpg';
 
 const HomeExpertise: React.FC = () => {
   return (
@@ -33,42 +18,30 @@ const HomeExpertise: React.FC = () => {
           across the full stack.
         </p>
       </div>
-      <div
-        className="home-expertise__front-end-skills home-expertise__skills-container"
+      <JBHighlight
+        className="home-expertise__area"
+        background={Dashboard}
         data-aos="fade-up"
         data-aos-anchor-placement="top-bottom"
       >
-        <h6 className="jb-typography__h6--bold">Front End</h6>
-        <div className="home-expertise__skills">
-          {expertise.frontEnd.map((skill) => (
-            <span key={skill}>{skill}</span>
-          ))}
-        </div>
-      </div>
-      <div
-        className="home-expertise__back-end-skills home-expertise__skills-container"
+        <label className="jb-typography__label--medium-bold">Front End</label>
+      </JBHighlight>
+      <JBHighlight
+        className="home-expertise__area"
+        background={Server}
         data-aos="fade-up"
         data-aos-anchor-placement="top-bottom"
       >
-        <h6 className="jb-typography__h6--bold">Back End</h6>
-        <div className="home-expertise__skills">
-          {expertise.backEnd.map((skill) => (
-            <span key={skill}>{skill}</span>
-          ))}
-        </div>
-      </div>
-      <div
-        className="home-expertise__ci-cd-skills home-expertise__skills-container"
+        <label className="jb-typography__label--medium-bold">Back End</label>
+      </JBHighlight>
+      <JBHighlight
+        className="home-expertise__area"
+        background={Launch}
         data-aos="fade-up"
         data-aos-anchor-placement="top-bottom"
       >
-        <h6 className="jb-typography__h6--bold">CI/CD</h6>
-        <div className="home-expertise__skills">
-          {expertise.ciCd.map((skill) => (
-            <span key={skill}>{skill}</span>
-          ))}
-        </div>
-      </div>
+        <label className="jb-typography__label--medium-bold">CI/CD</label>
+      </JBHighlight>
     </section>
   );
 };

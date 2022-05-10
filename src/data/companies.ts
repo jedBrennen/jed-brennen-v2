@@ -1,14 +1,14 @@
 import { Company } from 'common/types';
-import { ReactComponent as AIGLogo } from 'assets/logos/aig-logo.svg';
-import { ReactComponent as SageLogo } from 'assets/logos/sage-logo.svg';
-import { ReactComponent as UrbanScienceLogo } from 'assets/logos/urban-science-logo.svg';
+import { ReactComponent as AIGLogo } from 'assets/icons/logos/aig-logo.svg';
+import { ReactComponent as SageLogo } from 'assets/icons/logos/sage-logo.svg';
+import { ReactComponent as UrbanScienceLogo } from 'assets/icons/logos/urban-science-logo.svg';
 
 const companies: Company[] = [
   {
     id: 'aig',
     name: 'AIG',
     logo: AIGLogo,
-    joined: 'December 2020',
+    joined: new Date(2020, 11),
     title: 'Front End Developer',
     location: 'London, UK',
     description:
@@ -26,8 +26,8 @@ const companies: Company[] = [
     id: 'sage-people',
     name: 'Sage People',
     logo: SageLogo,
-    joined: 'July 2018',
-    departed: 'December 2020',
+    joined: new Date(2018, 6),
+    departed: new Date(2020, 11),
     title: 'Software Engineer',
     location: 'Reading, UK',
     description:
@@ -43,8 +43,8 @@ const companies: Company[] = [
     id: 'urban-science',
     name: 'Urban Science',
     logo: UrbanScienceLogo,
-    joined: 'June 2016',
-    departed: 'March 2018',
+    joined: new Date(2016, 5),
+    departed: new Date(2018, 2),
     title: 'Analyst',
     location: 'Reading, UK',
     description:

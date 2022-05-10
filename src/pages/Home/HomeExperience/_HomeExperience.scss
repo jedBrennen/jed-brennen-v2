@@ -11,19 +11,25 @@
     gap: 32px;
   }
 
-  &__company {
+  &__company,
+  &__company-highlight {
     display: flex;
     flex-direction: column;
-    gap: 16px;
     justify-content: center;
     align-items: center;
+  }
+
+  &__company {
+    gap: 16px;
 
     svg {
       height: 40px;
       filter: grayscale(100%);
       transition: filter $common-transition-timing;
     }
+  }
 
+  &__company-highlight {
     &:hover {
       svg {
         filter: none;
