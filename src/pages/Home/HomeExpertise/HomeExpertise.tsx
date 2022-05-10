@@ -1,22 +1,4 @@
-const expertise = {
-  frontEnd: [
-    'JS/Typescript',
-    'React',
-    'Redux',
-    'ChartJS',
-    'Angular',
-    'SCSS/SASS',
-    'BEM',
-    'Jest',
-    'Enzyme',
-    'Mocha',
-    'Cypress',
-    'Storybook',
-    'Flutter',
-  ],
-  backEnd: ['Python', 'Node', 'Java', 'SQL', 'NoSQL', 'REST', 'GraphQL'],
-  ciCd: ['GitHub', 'AWS', 'Firebase', 'Docker'],
-};
+import skills from 'data/skills';
 
 const HomeExpertise: React.FC = () => {
   return (
@@ -40,7 +22,7 @@ const HomeExpertise: React.FC = () => {
       >
         <h6 className="jb-typography__h6--bold">Front End</h6>
         <div className="home-expertise__skills">
-          {expertise.frontEnd.map((skill) => (
+          {skills.frontEnd.map((skill) => (
             <span key={skill}>{skill}</span>
           ))}
         </div>
@@ -52,7 +34,7 @@ const HomeExpertise: React.FC = () => {
       >
         <h6 className="jb-typography__h6--bold">Back End</h6>
         <div className="home-expertise__skills">
-          {expertise.backEnd.map((skill) => (
+          {skills.backEnd.map((skill) => (
             <span key={skill}>{skill}</span>
           ))}
         </div>
@@ -64,7 +46,7 @@ const HomeExpertise: React.FC = () => {
       >
         <h6 className="jb-typography__h6--bold">CI/CD</h6>
         <div className="home-expertise__skills">
-          {expertise.ciCd.map((skill) => (
+          {skills.ciCd.map((skill) => (
             <span key={skill}>{skill}</span>
           ))}
         </div>
