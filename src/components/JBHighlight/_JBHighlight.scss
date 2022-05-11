@@ -34,3 +34,30 @@
     }
   }
 }
+
+@mixin jb-highlight-grid($grid-container) {
+  #{$grid-container} {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  @include toTablet {
+    #{$grid-container} {
+      flex-direction: column;
+    }
+
+    .jb-highlight {
+      width: 100%;
+    }
+  }
+
+  @include onlyBreakpoint($breakpoint-small-min, $breakpoint-large-max) {
+    .jb-highlight {
+      width: 300px;
+      height: 300px;
+    }
+  }
+}

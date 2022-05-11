@@ -3,7 +3,7 @@ import { ReactComponent as AIGLogo } from 'assets/icons/logos/aig-logo.svg';
 import { ReactComponent as SageLogo } from 'assets/icons/logos/sage-logo.svg';
 import { ReactComponent as UrbanScienceLogo } from 'assets/icons/logos/urban-science-logo.svg';
 
-const companies: Company[] = [
+const COMPANIES: Company[] = [
   {
     id: 'aig',
     name: 'AIG',
@@ -52,4 +52,4 @@ const companies: Company[] = [
   },
 ];
 
-export default companies;
+export default COMPANIES;

@@ -1,4 +1,4 @@
-const skills = {
+const SKILLS = {
   frontEnd: [
     'JS/Typescript',
     'HTML/CSS',
@@ -18,4 +18,4 @@ const skills = {
   ciCd: ['GitHub', 'AWS', 'Firebase', 'Docker'],
 };
 
-export default skills;
+export default SKILLS;

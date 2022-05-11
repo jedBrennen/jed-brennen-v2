@@ -36,9 +36,13 @@
   }
 
   @include toSmall {
+    column-gap: 16px;
+
     &__header {
       grid-row: 1;
       grid-column: 1;
+      font-size: $font-header-size-h2;
+      line-height: $font-header-lineheight-h2;
     }
 
     &__logo {

@@ -80,8 +80,14 @@ $spacing: 80px;
         }
       }
     }
+  }
 
-    @include toTablet {
+  @include toTablet {
+    &__header-section {
+      height: calc(100vh - $navbar-height-tablet);
+    }
+
+    &__dual-section {
       grid-template-columns: 1fr;
 
       & > :first-child {
