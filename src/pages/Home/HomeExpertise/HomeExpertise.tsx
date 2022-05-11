@@ -31,6 +31,14 @@ const EXPERTISE_AREAS: HomeExpertiseArea[] = [
 const HomeExpertise: React.FC = () => {
   const [selectedArea, setSelectedArea] = useState<ExpertiseArea | undefined>();
 
+  const handleSelectArea = (area: ExpertiseArea) => {
+    if (selectedArea === area) {
+      setSelectedArea(undefined);
+    } else {
+      setSelectedArea(area);
+    }
+  };
+
   return (
     <section id="home-expertise" className="home-expertise home__section">
       <div
@@ -57,7 +65,7 @@ const HomeExpertise: React.FC = () => {
                 'home-expertise__area--selected': selectedArea === area,
               })}
               background={backgroundImage}
-              onClick={() => setSelectedArea(area)}
+              onClick={() => handleSelectArea(area)}
             >
               <label className="home-expertise__area-label jb-typography__label--medium-bold">
                 {label}
