@@ -1,14 +1,63 @@
 .jb-highlight {
+  position: relative;
   width: 350px;
   height: 350px;
-  transition: background $common-transition-timing,
-    color $common-transition-timing;
+  transition: all $common-transition-timing;
+  background-size: cover;
   @include applyThemedBgWithCorrectTextColor('secondary-bg');
   @include useTheme() {
     border: 4px solid themed('primary-border');
   }
 
+  &__content {
+    z-index: 2;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    @include applyThemedBgWithCorrectTextColor('secondary-bg');
+    opacity: 0;
+    z-index: 1;
+    transition: opacity $common-transition-timing;
+  }
+
   &:hover {
     @include applyThemedBgWithCorrectTextColor('primary-bg');
+
+    &::before {
+      opacity: 0.4;
+    }
+  }
+}
+
+@mixin jb-highlight-grid($grid-container) {
+  #{$grid-container} {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  @include toTablet {
+    #{$grid-container} {
+      flex-direction: column;
+    }
+
+    .jb-highlight {
+      width: 100%;
+    }
+  }
+
+  @include onlyBreakpoint($breakpoint-small-min, $breakpoint-large-max) {
+    .jb-highlight {
+      width: 300px;
+      height: 300px;
+    }
   }
 }

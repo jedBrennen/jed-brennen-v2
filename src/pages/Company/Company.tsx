@@ -1,13 +1,17 @@
-import companies from 'data/companies';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
 import { useParams } from 'react-router';
+import COMPANIES from 'data/companies';
+
+dayjs.extend(relativeTime);
 
 const Company: React.FC = () => {
   const { companyId } = useParams();
-  const company = companies.find(({ id }) => id === companyId);
+  const company = COMPANIES.find(({ id }) => id === companyId);
 
   if (!company) return <div>Company Not Found</div>;
 
-  const { logo: ComapnyLogo } = company;
+  const { logo: CompanyLogo } = company;
 
   return (
     <div className="company">
@@ -34,7 +38,7 @@ const Company: React.FC = () => {
           Joined
         </span>
         <span className="company__summary-value jb-typography__label--small-bold">
-          {company.joined}
+          {dayjs(company.joined).format('MMMM YYYY')}
         </span>
         {company.departed && (
           <>
@@ -42,7 +46,13 @@ const Company: React.FC = () => {
               Departed
             </span>
             <span className="company__summary-value jb-typography__label--small-bold">
-              {company.departed}
+              {dayjs(company.departed).format('MMMM YYYY')}
+            </span>
+            <span className="company__summary-label jb-typography__label--small">
+              Length
+            </span>
+            <span className="company__summary-value jb-typography__label--small-bold">
+              {dayjs(company.joined).to(company.departed, true)}
             </span>
           </>
         )}
@@ -53,7 +63,7 @@ const Company: React.FC = () => {
           {company.location}
         </span>
       </section>
-      <ComapnyLogo className="company__logo" />
+      <CompanyLogo className="company__logo" />
     </div>
   );
 };

@@ -1,11 +1,14 @@
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
 import { ROUTE_COMPANIES } from 'common/routes';
 import JBHighlight from 'components/JBHighlight/JBHighlight';
-import companyData from 'data/companies';
-import { Company } from 'common/types';
+import COMPANIES from 'data/companies';
 import useNavigateToTop from 'common/hooks/useNavigateToTop';
+import SKILLS from 'data/skills';
+
+dayjs.extend(relativeTime);
 
 const HomeExperience: React.FC = () => {
-  const companies = companyData as Company[];
   const navigate = useNavigateToTop();
 
   const handleNavigate = (companyName: string) => {
@@ -17,8 +20,15 @@ const HomeExperience: React.FC = () => {
       <h5 data-aos="fade-up" data-aos-anchor-placement="top-bottom">
         Experience
       </h5>
+      <p data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+        My first professional developer role came in 2016. Since then I have
+        accrued {dayjs('2016-06-01').toNow(true)} of development experience
+        across {COMPANIES.length} different companies using more than{' '}
+        {SKILLS.frontEnd.length + SKILLS.backEnd.length + SKILLS.ciCd.length}{' '}
+        different technologies.
+      </p>
       <div className="home-experience__companies">
-        {companies.map(({ id, name, logo: Logo }) => {
+        {COMPANIES.map(({ id, name, logo: Logo }) => {
           return (
             <span
               key={id}
@@ -27,13 +37,15 @@ const HomeExperience: React.FC = () => {
               data-aos-anchor-placement="top-bottom"
             >
               <JBHighlight
-                className="home-experience__company"
+                className="home-experience__company-highlight"
                 onClick={() => handleNavigate(id)}
               >
-                <Logo name={`${id} logo`} />
-                <label className="jb-typography__label--medium-bold">
-                  {name}
-                </label>
+                <div className="home-experience__company">
+                  <Logo name={`${id} logo`} />
+                  <label className="jb-typography__label--medium-bold">
+                    {name}
+                  </label>
+                </div>
               </JBHighlight>
             </span>
           );

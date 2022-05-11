@@ -77,7 +77,7 @@ $themes: (
 
 @mixin applyThemedBgWithCorrectTextColor($bg-color) {
   @include useTheme() {
-    background: themed($bg-color);
+    background-color: themed($bg-color);
     color: getTextColorBasedOnBG(themed($bg-color));
   }
 }

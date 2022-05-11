@@ -1,49 +1,72 @@
 .home-expertise {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 32px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 
   &__header {
-    grid-column: 1 / span 3;
     display: flex;
     flex-direction: column;
     gap: 16px;
   }
 
-  &__skills-container {
+  &__area {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+
+    &--selected {
+      .home-expertise {
+        &__area-label {
+          opacity: 0;
+        }
+        &__area-content {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__area-label {
+    padding: 8px;
+    @include useTheme {
+      background-color: rgba(themed('secondary-bg'), 0.7);
+    }
+  }
+
+  &__area-label {
+    transition: opacity $common-transition-timing;
+  }
+
+  &__area-content {
+    transition: opacity $common-transition-timing;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding: 16px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    @include useTheme {
+      background-color: rgba(themed('secondary-bg'), 0.8);
+    }
+  }
+
+  &__area-content-label {
+    &label {
+      background-color: transparent;
+    }
+  }
+
+  &__area-skill-list {
+    list-style-type: none;
+    padding-inline-start: 0;
+    display: flex;
+    flex-wrap: wrap;
     gap: 16px;
   }
 
-  &__skills {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: space-between;
-    column-gap: 16px;
-  }
-
-  @include toTablet {
-    grid-template-columns: 1fr;
-
-    &__header {
-      grid-column: 1;
-    }
-  }
-
-  @include onlyTablet {
-    &__skills {
-      grid-template-columns: 1fr 1fr 1fr;
-      column-gap: 40px;
-    }
-  }
-
-  @include onlySmall {
-    grid-template-columns: 1fr 1fr;
-
-    &__header {
-      grid-column: 1 / span 2;
-    }
-  }
+  @include jb-highlight-grid('&__areas');
 }
