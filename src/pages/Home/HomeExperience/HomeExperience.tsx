@@ -1,10 +1,10 @@
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import { ROUTE_COMPANIES } from 'common/routes';
-import JBHighlight from 'components/JBHighlight/JBHighlight';
-import COMPANIES from 'data/companies';
-import useNavigateToTop from 'common/hooks/useNavigateToTop';
-import SKILLS from 'data/skills';
+import { ROUTE_COMPANIES } from '@/common/routes';
+import JBHighlight from '@/components/JBHighlight/JBHighlight';
+import COMPANIES from '@/data/companies';
+import useNavigateToTop from '@/common/hooks/useNavigateToTop';
+import SKILLS from '@/data/skills';
 
 dayjs.extend(relativeTime);
 

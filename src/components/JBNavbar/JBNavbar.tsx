@@ -1,13 +1,13 @@
 import { useContext, useState } from 'react';
 import classNames from 'classnames';
 import { mdiClose, mdiMenu, mdiThemeLightDark } from '@mdi/js';
-import JBButton from 'components/JBButton/JBButton';
-import { ROUTE_HOME } from 'common/routes';
-import { ThemeContext } from 'context/Theme/Theme';
-import useBreakpoint from 'common/hooks/useBreakpoint';
-import { JBButtonSize } from 'components/JBButton/JBButton.types';
-import JBLink from 'components/JBLink/JBLink';
-import useNavigateToTop from 'common/hooks/useNavigateToTop';
+import JBButton from '@/components/JBButton/JBButton';
+import { ROUTE_HOME } from '@/common/routes';
+import { ThemeContext } from '@/context/Theme/Theme';
+import useBreakpoint from '@/common/hooks/useBreakpoint';
+import { JBButtonSize } from '@/components/JBButton/JBButton.types';
+import JBLink from '@/components/JBLink/JBLink';
+import useNavigateToTop from '@/common/hooks/useNavigateToTop';
 
 const JBNavbar: React.FC = () => {
   const { theme, setTheme } = useContext(ThemeContext);

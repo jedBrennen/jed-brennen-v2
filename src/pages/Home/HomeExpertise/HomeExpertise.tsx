@@ -1,10 +1,10 @@
-import JBHighlight from 'components/JBHighlight/JBHighlight';
-import Dashboard from 'assets/images/dashboard.jpg';
-import Server from 'assets/images/server.jpg';
-import Launch from 'assets/images/launch.jpg';
+import JBHighlight from '@/components/JBHighlight/JBHighlight';
+import Dashboard from '@/assets/images/dashboard.jpg';
+import Server from '@/assets/images/server.jpg';
+import Launch from '@/assets/images/launch.jpg';
 import { useState } from 'react';
 import { ExpertiseArea, HomeExpertiseArea } from './HomeExpertise.types';
-import SKILLS from 'data/skills';
+import SKILLS from '@/data/skills';
 import classNames from 'classnames';
 
 const EXPERTISE_AREAS: HomeExpertiseArea[] = [
@@ -56,6 +56,7 @@ const HomeExpertise: React.FC = () => {
       <div className="home-expertise__areas">
         {EXPERTISE_AREAS.map(({ area, label, skillSet, backgroundImage }) => (
           <span
+            key={area}
             className="home-expertise__area-container"
             data-aos="fade-up"
             data-aos-anchor-placement="top-bottom"
@@ -76,7 +77,10 @@ const HomeExpertise: React.FC = () => {
                 </label>
                 <ul className="home-expertise__area-skill-list">
                   {skillSet.map((skill) => (
-                    <li className="jb-typography__label--small-bold">
+                    <li
+                      key={skill}
+                      className="jb-typography__label--small-bold"
+                    >
                       {skill}
                     </li>
                   ))}

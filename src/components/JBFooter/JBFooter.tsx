@@ -1,6 +1,6 @@
 import Icon from '@mdi/react';
 import { mdiGithub, mdiLinkedin } from '@mdi/js';
-import JBLink from 'components/JBLink/JBLink';
+import JBLink from '@/components/JBLink/JBLink';
 
 const JBFooter: React.FC = () => {
   return (

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { LOCAL_STORAGE_KEY_THEME } from 'common/constants';
+import { LOCAL_STORAGE_KEY_THEME } from '@/common/constants';
 import { ThemeProviderProps, ThemeState, ThemeValue } from './Theme.types';
 
 const localStorage = window.localStorage;

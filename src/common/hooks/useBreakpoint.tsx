@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import throttle from 'lodash/throttle';
+import * as _ from 'lodash-es';
 import {
   BREAKPOINT_LARGE,
   BREAKPOINT_MOBILE,
   BREAKPOINT_SMALL,
   BREAKPOINT_TABLET,
-} from 'common/constants';
+} from '@/common/constants';
 
 type Breakpoint = 'mobile' | 'tablet' | 'small' | 'large' | 'xlarge';
 
@@ -15,7 +15,7 @@ const useBreakpoint = () => {
   );
 
   useEffect(() => {
-    const callback = throttle(() => {
+    const callback = _.throttle(() => {
       const breakpoint = getBreakpoint(window.innerWidth);
       setCurrentBreakpoint(breakpoint);
     }, 200);

@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
-import JBFooter from 'components/JBFooter/JBFooter';
-import JBNavbar from 'components/JBNavbar/JBNavbar';
+import JBFooter from '@/components/JBFooter/JBFooter';
+import JBNavbar from '@/components/JBNavbar/JBNavbar';
 
 const JBLayout: React.FC = () => {
   return (

@@ -1,7 +1,7 @@
 import {
   JBButtonSize,
   JBButtonVariation,
-} from 'components/JBButton/JBButton.types';
+} from '@/components/JBButton/JBButton.types';
 
 export interface JBLinkProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {

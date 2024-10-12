@@ -1,6 +1,8 @@
+@use 'sass:color';
+
 // Light Theme Variables
 $light-primary-bg: white;
-$light-secondary-bg: darken($light-primary-bg, 10%);
+$light-secondary-bg: color.scale($light-primary-bg, $lightness: -10%);
 $light-primary-text: $colour-primary-grey;
 $light-primary-border: $colour-primary-grey;
 $light-button-text: $colour-primary-grey;
@@ -9,7 +11,7 @@ $light-button-border: $colour-primary-grey;
 
 // Dark Theme Variables
 $dark-primary-bg: $colour-primary-grey;
-$dark-secondary-bg: lighten($dark-primary-bg, 10%);
+$dark-secondary-bg: color.scale($dark-primary-bg, $lightness: 10%);
 $dark-primary-text: white;
 $dark-primary-border: white;
 $dark-button-text: white;
@@ -24,11 +26,11 @@ $themes: (
     primary-text: $light-primary-text,
     primary-border: $light-primary-border,
     button-text: $light-primary-text,
-    button-text-focus: darken($light-button-text, 20%),
+    button-text-focus: color.scale($light-button-text, $lightness: -20%),
     button-bg: $light-button-bg,
-    button-bg-focus: darken($light-button-bg, 20%),
+    button-bg-focus: color.scale($light-button-bg, $lightness: -20%),
     button-border: $light-button-border,
-    button-border-focus: darken($light-button-border, 20%),
+    button-border-focus: color.scale($light-button-border, $lightness: -20%),
   ),
   dark: (
     primary-bg: $dark-primary-bg,
@@ -36,11 +38,11 @@ $themes: (
     primary-text: $dark-primary-text,
     primary-border: $dark-primary-border,
     button-text: $dark-primary-text,
-    button-text-focus: darken($dark-button-text, 20%),
+    button-text-focus: color.scale($dark-button-text, $lightness: -20%),
     button-bg: $dark-button-bg,
-    button-bg-focus: darken($dark-button-bg, 20%),
+    button-bg-focus: color.scale($dark-button-bg, $lightness: -20%),
     button-border: $dark-button-border,
-    button-border-focus: darken($dark-button-border, 20%),
+    button-border-focus: color.scale($dark-button-border, $lightness: -20%),
   ),
 );
 
@@ -68,7 +70,7 @@ $themes: (
 }
 
 @function getTextColorBasedOnBG($color) {
-  @if (lightness($color) > 50) {
+  @if (color.channel($color, 'lightness', $space: hsl) > 50) {
     @return $colour-primary-grey;
   } @else {
     @return white;

@@ -22,6 +22,7 @@
         }
         &__area-content {
           opacity: 1;
+          visibility: visible;
         }
       }
     }
@@ -39,8 +40,10 @@
   }
 
   &__area-content {
-    transition: opacity $common-transition-timing;
+    transition: opacity $common-transition-timing,
+      visibility $common-transition-timing;
     opacity: 0;
+    visibility: hidden;
     position: absolute;
     top: 0;
     left: 0;

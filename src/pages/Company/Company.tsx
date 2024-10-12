@@ -1,13 +1,13 @@
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { useParams } from 'react-router';
-import COMPANIES from 'data/companies';
+import Companies from '@/data/companies';
 
 dayjs.extend(relativeTime);
 
 const Company: React.FC = () => {
   const { companyId } = useParams();
-  const company = COMPANIES.find(({ id }) => id === companyId);
+  const company = Companies.find(({ id }) => id === companyId);
 
   if (!company) return <div>Company Not Found</div>;
 
