@@ -3,6 +3,7 @@
 // Light Theme Variables
 $light-primary-bg: white;
 $light-secondary-bg: color.scale($light-primary-bg, $lightness: -10%);
+$light-tertiary-bg: color.scale($light-primary-bg, $lightness: -30%);
 $light-primary-text: $colour-primary-grey;
 $light-primary-border: $colour-primary-grey;
 $light-button-text: $colour-primary-grey;
@@ -12,6 +13,7 @@ $light-button-border: $colour-primary-grey;
 // Dark Theme Variables
 $dark-primary-bg: $colour-primary-grey;
 $dark-secondary-bg: color.scale($dark-primary-bg, $lightness: 10%);
+$dark-tertiary-bg: color.scale($dark-primary-bg, $lightness: 30%);
 $dark-primary-text: white;
 $dark-primary-border: white;
 $dark-button-text: white;
@@ -23,6 +25,7 @@ $themes: (
   light: (
     primary-bg: $light-primary-bg,
     secondary-bg: $light-secondary-bg,
+    tertiary-bg: $light-tertiary-bg,
     primary-text: $light-primary-text,
     primary-border: $light-primary-border,
     button-text: $light-primary-text,
@@ -35,6 +38,7 @@ $themes: (
   dark: (
     primary-bg: $dark-primary-bg,
     secondary-bg: $dark-secondary-bg,
+    tertiary-bg: $dark-tertiary-bg,
     primary-text: $dark-primary-text,
     primary-border: $dark-primary-border,
     button-text: $dark-primary-text,

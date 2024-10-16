@@ -22,6 +22,15 @@ $spacing: 80px;
     }
   }
 
+  &__spinner {
+    height: 150px;
+    margin: auto;
+
+    @include useTheme() {
+      fill: themed('tertiary-bg');
+    }
+  }
+
   &__header-section {
     height: calc(100vh - $navbar-height);
     display: flex;

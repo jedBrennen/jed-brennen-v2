@@ -19,6 +19,23 @@
     }
   }
 
+  &__spinner-container {
+    width: 100%;
+    min-height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__spinner {
+    height: 150px;
+    margin: auto;
+
+    @include useTheme() {
+      fill: themed('tertiary-bg');
+    }
+  }
+
   &__logo {
     max-width: 100%;
   }
@@ -26,13 +43,13 @@
   &__summary {
     @include applyThemedBgWithCorrectTextColor('secondary-bg');
     padding: 16px;
-    display: grid;
-    grid-template-columns: 4fr 8fr;
-    gap: 16px;
+    display: flex;
+    flex-direction: column;
   }
 
-  &__summary-header {
-    grid-column: 1 / span 2;
+  &__roles {
+    display: flex;
+    flex-direction: column;
   }
 
   @include toSmall {

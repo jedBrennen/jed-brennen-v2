@@ -14,7 +14,7 @@
   &__company {
     gap: 16px;
 
-    svg {
+    img {
       height: 40px;
       filter: grayscale(100%);
       transition: filter $common-transition-timing;
@@ -23,7 +23,7 @@
 
   &__company-highlight {
     &:hover {
-      svg {
+      img {
         filter: none;
       }
     }

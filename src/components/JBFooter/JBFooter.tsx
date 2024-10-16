@@ -21,7 +21,6 @@ const JBFooter: React.FC = () => {
           <Icon path={mdiLinkedin} size={2} />
         </JBLink>
       </div>
-      <span>Jed Brennen © 2022</span>
     </footer>
   );
 };
