@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { mdiClose, mdiMenu, mdiThemeLightDark } from '@mdi/js';
 import JBButton from '@/components/JBButton/JBButton';
@@ -8,10 +8,13 @@ import useBreakpoint from '@/common/hooks/useBreakpoint';
 import { JBButtonSize } from '@/components/JBButton/JBButton.types';
 import JBLink from '@/components/JBLink/JBLink';
 import useNavigateToTop from '@/common/hooks/useNavigateToTop';
+import { getCvDownloadUrl } from '@/services/document.service';
 
 const JBNavbar: React.FC = () => {
   const { theme, setTheme } = useContext(ThemeContext);
   const [isMenuExpanded, setIsMenuExpanded] = useState(false);
+  const [loadingCvUrl, setLoadingCvUrl] = useState(false);
+  const [cvUrl, setCvUrl] = useState<string>();
   const navigate = useNavigateToTop();
   const breakpoint = useBreakpoint();
 
@@ -30,6 +33,16 @@ const JBNavbar: React.FC = () => {
       setTheme('dark');
     }
   };
+
+  useEffect(() => {
+    const fetchCvUrl = async () => {
+      setLoadingCvUrl(true);
+      const url = await getCvDownloadUrl();
+      setCvUrl(url);
+      setLoadingCvUrl(false);
+    };
+    fetchCvUrl();
+  });
 
   return (
     <nav className="jb-navbar">
@@ -69,7 +82,9 @@ const JBNavbar: React.FC = () => {
         <JBLink
           linkType="primary"
           linkSize={buttonSize}
-          href="/files/Jed Brennen CV.pdf"
+          isDisabled={loadingCvUrl || !cvUrl}
+          href={cvUrl}
+          target="_blank"
           download
         >
           Download CV
